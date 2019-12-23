@@ -1,0 +1,36 @@
+.buttonGoBack {
+  text-decoration: none;
+  user-select: none;
+  padding: 0.2em 1.2em;
+  margin-bottom: 2px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid grey;
+  margin-bottom: 10px;
+}
+
+.imgWrapper {
+  width: 200px;
+  height: 320px;
+}
+
+.informationWrapper {
+  margin-left: 25px;
+}
+
+.genres {
+  display: flex;
+  list-style-type: none;
+}
+
+.liGenres {
+  padding-right: 10px;
+}
+
+.shadow {
+  border-bottom: 1px solid grey;
+  margin-bottom: 10px;
+}

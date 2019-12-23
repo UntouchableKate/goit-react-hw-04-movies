@@ -1,0 +1,15 @@
+.listNav {
+  display: flex;
+  flex-direction: row;
+  width: 180px;
+  justify-content: space-between;
+}
+
+.li {
+  list-style-type: none;
+}
+
+.linkNav {
+  text-decoration: none;
+  font-size: 24px;
+}
