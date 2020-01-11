@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 //routes
 import routes from '../../routes';
@@ -16,6 +17,47 @@ import Reviews from '../Reviews';
 import styles from './MovieDetails.module.css';
 
 class MovieDetails extends Component {
+  static defaultProps = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        movieId: PropTypes.string,
+      }),
+      location: PropTypes.shape({
+        state: PropTypes.objectOf(
+          PropTypes.shape({
+            hash: PropTypes.string,
+
+            search: PropTypes.string,
+          }),
+        ),
+      }),
+      history: PropTypes.shape({
+        push: PropTypes.string,
+      }),
+    }),
+  };
+
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        movieId: PropTypes.string,
+      }),
+      location: PropTypes.shape({
+        state: PropTypes.objectOf(
+          PropTypes.shape({
+            hash: PropTypes.string,
+            key: PropTypes.string.isRequired,
+            pathname: PropTypes.string.isRequired,
+            search: PropTypes.string,
+          }),
+        ),
+      }),
+      history: PropTypes.shape({
+        push: PropTypes.string,
+      }),
+    }),
+  };
+
   state = {
     movies: null,
   };
@@ -35,10 +77,11 @@ class MovieDetails extends Component {
   goBack = () => {
     if (this.props.location.state && this.props.location.state.from) {
       this.props.history.push(this.props.location.state.from);
+
       return;
     }
 
-    this.props.history.push('/');
+    this.props.history.push(routes.MOVIES);
   };
 
   render() {
@@ -53,6 +96,7 @@ class MovieDetails extends Component {
         >
           Go back
         </button>
+
         {movie && (
           <div className={styles.wrapper}>
             <img
@@ -83,25 +127,10 @@ class MovieDetails extends Component {
           <h4>Additional information</h4>
           <ul>
             <li>
-              <Link
-                to={{
-                  pathname: `${match.url}/cast`,
-                  state: { from: this.props.location },
-                }}
-                // to={`${match.url}/cast`}
-              >
-                Cast
-              </Link>
+              <Link to={`${match.url}/cast`}>Cast</Link>
             </li>
             <li>
-              <Link
-                to={{
-                  pathname: `${match.url}/reviews`,
-                  state: { from: this.props.location },
-                }}
-              >
-                Raviews
-              </Link>
+              <Link to={`${match.url}/reviews`}>Reviews</Link>
             </li>
           </ul>
           <Switch>

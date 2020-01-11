@@ -52,14 +52,6 @@ class MoviesPage extends Component {
     });
   };
 
-  //   fetch(
-  //     'https://api.themoviedb.org/3/search/movie?api_key=754954b74cd2707762208fc23a169e09&language=en-US&query=${query}&page=1',
-  //   )
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({ movies: data.results });
-  //     });
-
   render() {
     const { match } = this.props;
     const { movie } = this.state;

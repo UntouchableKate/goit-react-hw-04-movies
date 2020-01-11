@@ -15,27 +15,20 @@ class HomePage extends Component {
   };
 
   componentDidMount() {
-    // fetch (
-    //   'https://api.themoviedb.org/3/trending/movie/day?api_key=754954b74cd2707762208fc23a169e09'
-    // )
-    //   .then (res => res.json ())
-    //   .then (data => {
-    //     this.setState ({movies: data.results});
-    //   });
     this.fetchTrending();
   }
 
   fetchTrending = () => {
-    api.fetchTrendingMoviesToday().then(data => {
-      this.setState({ movies: data.results });
-    });
+    try {
+      api.fetchTrendingMoviesToday().then(data => {
+        this.setState({ movies: data.results });
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  //{`${this.props.match.url}/${movie.id}`}
-  //{`/movies/${movie.id}`}
-
   render() {
-    // const { match } = this.props;
     return (
       <div>
         <h1>Trending today</h1>
