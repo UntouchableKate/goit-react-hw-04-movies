@@ -1,0 +1,35 @@
+.reviewsWrapper {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.reviewsItem {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.authorIconReviews {
+  display: flex;
+  color: #d2d2d2;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.authorReviews {
+  margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.reviewsContent {
+  text-align: justify;
+  border: 1px solid #a9a9b4;
+  padding: 10px 10px 10px 10px;
+  background-color: #c6b5a4;
+  opacity: 0.6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.dontAnyReviews {
+  color: aliceblue;
+}

@@ -6,6 +6,7 @@ import photoUrl from '../../services/photoURL';
 
 //styles
 import styles from './Cast.module.css';
+import icon from '../../icon.svg';
 
 class Cast extends Component {
   state = {
@@ -27,27 +28,34 @@ class Cast extends Component {
   render() {
     const { cast } = this.state;
     return (
-      <>
+      <div className={styles.mainCastWrapper}>
         {cast && (
-          <ul>
+          <ul className={styles.listCast}>
             {cast.map(elem => (
-              <li key={elem.credit_id}>
-                {elem.profile_path && (
-                  <div>
+              <li key={elem.credit_id} className={styles.itemCast}>
+                {elem.profile_path ? (
+                  <div className={styles.wrapperPhoto}>
                     <img
                       src={`${photoUrl.PHOTO}${elem.profile_path}`}
                       alt={elem.name}
                       className={styles.imgWrapper}
                     />
                   </div>
+                ) : (
+                  <div className={styles.noPhotoWrapper}>
+                    <img
+                      src={icon}
+                      alt={elem.name}
+                      className={styles.iconStyle}
+                    ></img>
+                  </div>
                 )}
-                <p>{elem.name}</p>
-                <p>Character: {elem.character}</p>
+                <p className={styles.nameCast}>{elem.name}</p>
               </li>
             ))}
           </ul>
         )}
-      </>
+      </div>
     );
   }
 }

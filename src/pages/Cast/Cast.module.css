@@ -1,4 +1,53 @@
+.mainCastWrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.listCast {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.itemCast {
+  padding-bottom: 20px;
+  margin-right: 20px;
+}
+
+.wrapperPhoto {
+  overflow: hidden;
+  width: 150px;
+  height: 180px;
+  border-radius: 5px;
+}
+
 .imgWrapper {
-  height: 150px;
-  width: 100px;
+  width: 100%;
+}
+
+.noPhotoWrapper {
+  width: 150px;
+  height: 180px;
+  border-radius: 5px;
+  background-color: #535365;
+  position: relative;
+}
+
+.iconStyle {
+  position: absolute;
+  top: 32%;
+  left: 32%;
+}
+
+.nameCast {
+  font-family: 'Montserrat', sans-serif;
+  color: #dbdbdb;
+  font-weight: 500;
+  width: 150px;
+}
+
+.itemCast:hover .nameCast {
+  font-family: 'Montserrat', sans-serif;
+  color: #ae4f52;
+  font-weight: 600;
 }

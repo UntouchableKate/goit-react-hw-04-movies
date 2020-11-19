@@ -41,10 +41,17 @@ const fetchMovieReviews = movieId => {
   ).then(res => res.json());
 };
 
+const fetchMovieTrailer = movieId => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=754954b74cd2707762208fc23a169e09&language=en-US`,
+  ).then(res => res.json());
+};
+
 export default {
   fetchMovieDetails,
   fetchSearchMovie,
   fetchTrendingMoviesToday,
   fetchMovieCast,
   fetchMovieReviews,
+  fetchMovieTrailer,
 };

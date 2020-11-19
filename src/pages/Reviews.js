@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 //services
 import api from '../services/api-services';
 
+//styles
+import styles from './Reviews.module.css';
+
 class Reviews extends Component {
   state = {
     reviews: [],
@@ -22,15 +25,22 @@ class Reviews extends Component {
   render() {
     const { reviews } = this.state;
     return (
-      <div>
+      <div className={styles.reviewsWrapper}>
         {reviews.length === 0 ? (
-          <div> We don't have any reviews for this movie.</div>
+          <div className={styles.dontAnyReviews}>
+            {' '}
+            We don't have any reviews for this movie.
+          </div>
         ) : (
-          <ul>
+          <ul className={styles.listReviews}>
             {reviews.map(elem => (
-              <li key={elem.id}>
-                <h4> Author: {elem.author}</h4>
-                <p>{elem.content}</p>
+              <li key={elem.id} className={styles.reviewsItem}>
+                <h4 className={styles.authorIconReviews}>
+                  {' '}
+                  <span class="material-icons">account_circle</span>{' '}
+                  <p className={styles.authorReviews}>{elem.author}</p>
+                </h4>
+                <p className={styles.reviewsContent}>{elem.content}</p>
               </li>
             ))}
           </ul>
